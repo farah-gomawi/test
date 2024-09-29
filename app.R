@@ -1,6 +1,7 @@
 library(shiny)
 library(eegkit)
-
+#mean_coherence<-readRDS('mean_coherence.RDS')
+source('githubtest.R')
 # Define the UI
 ui <- fluidPage(
   titlePanel("Coherence of EEG Frequency Bands"),
