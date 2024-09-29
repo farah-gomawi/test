@@ -88,11 +88,10 @@ server <- function(input, output, session) {
     )
     
     # Plot the EEG cap
-    #eegcap2d(channels,col.point = col.point)
-    plot(electrodes$x, electrodes$y, pch = 19, col = col.point, xlab = "", ylab = "", main = "EEG Cap", asp = 1)
-    
+    eegcap2d(channels,col.point = col.point)
+    #plot(electrodes$x, electrodes$y, pch = 19, col = col.point, xlab = "", ylab = "", main = "EEG Cap", asp = 1)
     # Add labels
-    text(electrodes$x, electrodes$y, labels = channels, pos = 3, cex = 0.7)
+    #text(electrodes$x, electrodes$y, labels = channels, pos = 3, cex = 0.7)
     
     # Highlight the reference channel
     points(electrodes$x[ref_ch], electrodes$y[ref_ch], col = "red", pch = 19, cex = 1.5)
