@@ -4,27 +4,27 @@ library(abind)
 library(eegkit)
 library(ggplot2)
 library(gplots)
-setwd("~/Documents/R/Drivingdata")
-Motion_subjects<-readRDS('Motion_subjects.RDS')
-channels<-colnames(Motion_subjects$s02_m1$EEGpre) # getting the names of the channels from the data
-subjs<-c('s02','s06','s12','s13','s23')
-length(Motion_subjects) # number of experiments 
+#setwd("~/Documents/R/Drivingdata")
+#Motion_subjects<-readRDS('Motion_subjects.RDS')
+#channels<-colnames(Motion_subjects$s02_m1$EEGpre) # getting the names of the channels from the data
+#subjs<-c('s02','s06','s12','s13','s23')
+#length(Motion_subjects) # number of experiments 
 sr=128 #sampling rate of the EEG
 t=2 # physical time 2 seconds
 obv=sr*t # total number of observations sampling rate x physical time
 
-ntrials_motion<-c()
-for (i in 1:length(Motion_subjects)) {
-  ntrials_motion<-append(ntrials_motion,length(Motion_subjects[[i]][[4]]))}
-plot(ntrials_motion,lwd=4,type='h',ylab='number of trials',
-     main=paste0('Histogram of # tirals \n Total #trials =',
-                 sum(ntrials_motion)))
+#ntrials_motion<-c()
+#for (i in 1:length(Motion_subjects)) {
+#  ntrials_motion<-append(ntrials_motion,length(Motion_subjects[[i]][[4]]))}
+#plot(ntrials_motion,lwd=4,type='h',ylab='number of trials',
+#     main=paste0('Histogram of # tirals \n Total #trials =',
+#                 sum(ntrials_motion)))
 
 #focusing on the EEGpre data for the motion subjects 
-motion<-  abind(Motion_subjects$s02_m1$EEGpre,Motion_subjects$s02_m2$EEGpre,
-                 Motion_subjects$s06_m1$EEGpre,Motion_subjects$s12_m1$EEGpre,
-                 Motion_subjects$s12_m2$EEGpre,Motion_subjects$s13_m1$EEGpre,
-                 Motion_subjects$s13_m2$EEGpre,Motion_subjects$s23_m1$EEGpre,along = 1)
+#motion<-  abind(Motion_subjects$s02_m1$EEGpre,Motion_subjects$s02_m2$EEGpre,
+#                 Motion_subjects$s06_m1$EEGpre,Motion_subjects$s12_m1$EEGpre,
+#                 Motion_subjects$s12_m2$EEGpre,Motion_subjects$s13_m1$EEGpre,
+#                 Motion_subjects$s13_m2$EEGpre,Motion_subjects$s23_m1$EEGpre,along = 1)
 dim(motion) #number of trials, number of channels, number of observations
 
 # a set of useful functions
