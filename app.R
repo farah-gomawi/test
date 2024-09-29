@@ -1,6 +1,7 @@
 library(shiny)
 library(eegkit)
 
+source('githubtest.R')
 # Define the UI
 ui <- fluidPage(
   titlePanel("Coherence of EEG Frequency Bands"),
