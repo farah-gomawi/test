@@ -1,7 +1,8 @@
 #for github
 
 mean_coherence<-readRDS('mean_coherence.RDS')
-
+channels<-readRDS('channels.RDS')
+subjs<-('subjs.RDS')
 heatmap(mean_coherence[1,,],symm = TRUE)
 
 coh_colormap<-array(dim = dim(mean_coherence))
